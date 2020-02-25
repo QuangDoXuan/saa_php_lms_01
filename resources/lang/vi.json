@@ -26,5 +26,15 @@
     "Listing": "Danh sách",
     "HomeTitle": "Bạn tìm kiếm gì ở thư viện ?",
     "RelatedSearch": "Tìm kiếm gần nhất",
-    "User Manage": "Quản lý người dùng"
+    "User Manage": "Quản lý người dùng",
+    "Created Date": "Ngày tạo",
+    "Reader Manage": "Quản lý bạn đọc",
+    "Book Manage":"Quản lý sách",
+    "BookCategory Manage":"Quản lý thể loại",
+    "BorrowBook Manage": "Quản lý mượn sách",
+    "Author Manage":"Quản lý tác giả",
+    "Publisher Manage":"Quản lý NXB",
+    "Role Manage":"Quản lý Role",
+    "Create Role":"Tạo role",
+    "Permissions": "Danh sách permission"
 }

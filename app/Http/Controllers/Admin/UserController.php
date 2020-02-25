@@ -5,18 +5,26 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Dictionary\AdminRepository;
+use App\Repositories\Dictionary\RoleRepository;
 use App\Http\Requests\AdminFormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     protected $repository;
-
-    public function __construct(AdminRepository $repository){
+    protected $roleRepository;
+    public function __construct(AdminRepository $repository, RoleRepository $roleRepository){
         $this->repository = $repository;
+        $this->roleRepository = $roleRepository;
     }
 
     public function index(){
+        // $user = Auth::user();
+        // if($user->can('delete', Admin::class)){
+            
+        // }
         $users = $this->repository->all();
+        // $roles = $this->roleRepository->index();
         return view('admin/user/index',compact('users'));
     }
 
@@ -32,7 +40,7 @@ class UserController extends Controller
     }
 
     public function search(Request $request){
-        $users = $this->repository->search($request->keyword,$request->size?$request->size:10 );
+        $users = $this->repository->search($request->keyword,$request->role_id );
         return view('admin/user/index',compact('users'));
     }
 
@@ -51,7 +59,11 @@ class UserController extends Controller
     }
 
     public function delete($id){
-        $this->repository->delete($id);
+        $user = Auth::user();
+        if($user->can('delete', Admin::class)){
+            $this->repository->delete($id);
+            return redirect()->route('admin\user\index');
+        }
         return redirect()->route('admin\user\index');
     }
 }

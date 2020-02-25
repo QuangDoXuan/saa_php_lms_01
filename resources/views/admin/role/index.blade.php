@@ -1,22 +1,18 @@
 @extends('admin.layout.admin')
-@section('title', 'Quản lý người dùng')
+@section('title', 'Quản lý role')
 
 @section('content')
 
 <div class="action-bar">
-    <form method="GET" action="{{ route('admin\user\search') }}">
+    <form method="GET" action="{{ route('admin\role\index') }}">
         <div class="form-group search-form">
             <div class="cover-input-search">
                 <input class="input-search" type="text" name="keyword" placeholder="{{ __('Type name') }}"/>
             </div>
-            <select id="role_id" name="role_id">
-                <option value=1>Super admin</option>
-                <option value=3>Moderator</option>
-            </select>
-            <button type="submit" class="btn-search btn-primary"> {{ __('Search') }}</button>
+            <button class="btn-search btn-primary"> {{ __('Search') }}</button>
         </div>
     </form>
-    <button class="btn btn-danger btn-add"><a href="{{ route('admin\user\create') }}">{{ __('Add') }}</a></button>
+    <button class="btn btn-danger btn-add"><a href="{{ route('admin\role\create') }}">{{ __('Add') }}</a></button>
 </div>
 
 
@@ -26,7 +22,7 @@
     <tr>
       <th scope="col">{{ __('Order') }}</th>
       <th scope="col">{{ __('Name') }}</th>
-      <th scope="col">{{ __('Email') }}</th>
+      <th scope="col">{{ __('CreatedDate') }}</th>
       <th scope="col">{{ __('Role') }}</th>
       <th scope="col">{{ __('Action') }}</th>
     </tr>
@@ -41,34 +37,37 @@
         <td></td>
     </tr> -->
 
-    @foreach($users as $key => $user)
-        <tr key="{{$user->id}}">
+    @foreach($roles as $key => $role)
+        <tr key="{{$role->id}}">
             <td>{{$key+1}}</td>
-            <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>
-            <td>{{$user->role->name}}</td>
+            <td>{{$role->name}}</td>
+            <td>{{$role->created_at}}</td>
             <td>
-                <!-- <a  style="margin-right:8px" ><i class="fas fa-trash-alt"></i></a>
-                <a><i class="far fa-edit"></i></a> -->
+                @foreach($role->rolePermission as $permission)
+                    {{$permission->permission->name}}
+                @endforeach
+            </td>
+            <!-- <td></td> -->
+            <td>
                 <div style="display:flex">
-                    <form method="get" action="{{ action('Admin\UserController@edit', $user->id) }}" class="float-left mr-2">
+                    <form method="get" action="{{ action('Admin\RoleController@edit', $role->id) }}" class="float-left mr-2">
                         <div>
                             <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
                         </div>
                     </form>
-                    <form method="post" action="{{ action('Admin\UserController@delete', $user->id) }}">
+                    <!-- <form method="post" action="{{ action('Admin\RoleController@delete', $role->id) }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div>
                             <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
                         </div>
-                    </form>
+                    </form> -->
                 </div>   
             </td>
         </tr>
     @endforeach
   </tbody>
 </table>
-{!! $users->links() !!}
+{!! $roles->links() !!}
 @endsection
 
 @section('javascript')

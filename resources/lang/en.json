@@ -5,7 +5,7 @@
     "Search" : "Search",
     "Edit" : "Edit",
     "Delete" : "Delete",
-    "Add" : "Add",
+    "Add" : "New",
     "Order" : "Order",
     "Email" : "Email",
     "Role" : "Role",
@@ -24,5 +24,15 @@
     "Register": "Register",
     "Listing": "Listing",
     "Password": "Password",
-    "User Manage": "User Manage"
+    "User Manage": "User Manage",
+    "Created Date": "Created Date",
+    "Reader Manage": "Reader Manage",
+    "Book Manage":"Book Manage",
+    "BookCategory Manage":"BookCategory Manage",
+    "BorrowBook Manage": "BorrowBook Manage",
+    "Author Manage":"Author Manage",
+    "Publisher Manage":"Publisher Manage",
+    "Role Manage":"Role Manage",
+    "Create Role":"Create Role",
+    "Permissions": "Permissions"
 }

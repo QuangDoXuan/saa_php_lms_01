@@ -3,29 +3,54 @@
 
 namespace App\Repositories\Dictionary;
 use Illuminate\Support\Facades\DB;
-use App\Models\Admin;
-use App\Repositories\IAdminRepository;
+use App\Models\Role;
+use App\Models\RolePermission;
+use App\Repositories\IRoleRepository;
 
-class AdminRepository implements IAdminRepository
+class RoleRepository implements IRoleRepository
 {
     protected $model;
 
     public function __construct()
     {
-        $this->model = new Admin();
+        $this->model = new Role();
+    }
+
+    public function index(){
+        return $this->model::all();
     }
 
     public function all(){
-        return $this->model::with('role')->paginate(5);
+        return $this->model::with('rolePermission','rolePermission.permission')->paginate(5);
     }
 
     public function show($id){
         return $this->model->find($id);
     }
 
-    public function create(array $data)
+    public function createRole(){
+
+    }
+
+    public function create($data, array $permissions)
     {
-        return $this->model->create($data);
+        DB::transaction(function () use($data, $permissions) {
+            // $role = $this->model->create($data);
+
+            $role = new Role(array(
+                'name'=>$data
+            ));
+            $role->save();
+            foreach($permissions as $permission){
+                // dd($role->id);
+                $rolePermisson = new RolePermission(array(
+                    'role_id'=>$role->id,
+                    'permission_id'=>$permission
+                ));
+                $rolePermisson->save();
+            }
+        });
+        return 0;
     }
 
     public function update(array $data, $id){
@@ -63,32 +88,10 @@ class AdminRepository implements IAdminRepository
             ->paginate();
     }
 
-    /**
-     * Get list user paginate
-     *
-     * @param int|null $paginate
-     * @param string|null $name
-     * @return array
-     */
-    public function search($name = null, $role_id = null)
-    {
-        $keywork = "%{$name}%";
+    public function search($name = null){
         $users = $this->model->where([
-            ['name', 'like', $keywork],
-            ['role_id','=',$role_id]
+            ['name', 'like', $name],
             ]) ->paginate(5);
-        return $users;
-    }
-
-    public function getBookmarkList($userId, $perPage = 15)
-    {
-        return $this->model
-            ->where('id', $userId)
-            ->first()
-            ->bookmarks()
-            ->with(['user', 'category', 'bannerImage'])
-            ->publish()
-            ->latest()
-            ->paginate($perPage);
+        return $roles;
     }
 }

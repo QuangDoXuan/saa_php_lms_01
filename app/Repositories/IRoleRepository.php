@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-interface IAdminRepository
+interface IRoleRepository
 {
     public function all();
 
-    public function create(array $data);
+    public function create($data, array $permissions);
 
     public function update(array $data, $id);
 
@@ -14,5 +14,5 @@ interface IAdminRepository
 
     public function show($id);
 
-    public function search($name = null, $role_id = null);
+    public function search($name = null);
 }
