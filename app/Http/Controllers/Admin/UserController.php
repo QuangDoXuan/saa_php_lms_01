@@ -16,8 +16,6 @@ class UserController extends Controller
 {
     protected $repository;
     protected $roleRepository;
-    protected $dataSearch;
-
     public function __construct(AdminRepository $repository, RoleRepository $roleRepository){
         $this->repository = $repository;
         $this->roleRepository = $roleRepository;
@@ -41,13 +39,11 @@ class UserController extends Controller
         $data = $request->all();
         // $data->password = Hash
         $this->repository->create($data);
-        return redirect()->back()->with('status','Thêm mới thành công');
+        return redirect()->back()->with('status',trans('Successful'));
     }
 
     public function search(Request $request){
         $users = $this->repository->search($request->keyword,$request->role_id );
-        // this$->dataSearch = $users;
-        dd($this->dataSearch);
         return view('admin/user/index',compact('users'));
     }
 

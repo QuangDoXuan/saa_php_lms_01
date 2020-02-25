@@ -31,7 +31,7 @@ class RoleController extends Controller
     public function store(Request $request){
         // dd(gettype($request->permissions));
         $this->repository->create($request->name, $request->permissions);
-        return redirect()->back()->with('status','Thêm mới thành công');
+        return redirect()->back()->with('status',trans('Successful'));
     }
 
     public function search(Request $request){
