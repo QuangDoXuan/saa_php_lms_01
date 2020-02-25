@@ -71,6 +71,7 @@ class UserController extends Controller
 
     /**
     * @return \Illuminate\Support\Collection
+    * export data to excel
     */
     public function export(Request $request) 
     {
