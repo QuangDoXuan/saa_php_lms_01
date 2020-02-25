@@ -16,6 +16,9 @@
             <button type="submit" class="btn-search btn-primary"> {{ __('Search') }}</button>
         </div>
     </form>
+
+    <button class="btn btn-warning btn-export"><a href="{{ route('admin\user\export') }}">{{ __('Export') }}</a></button>
+
     <button class="btn btn-danger btn-add"><a href="{{ route('admin\user\create') }}">{{ __('Add') }}</a></button>
 </div>
 

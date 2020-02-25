@@ -8,11 +8,16 @@ use App\Repositories\Dictionary\AdminRepository;
 use App\Repositories\Dictionary\RoleRepository;
 use App\Http\Requests\AdminFormRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Exports\AdminsExport;
+use App\Imports\AdminsImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
     protected $repository;
     protected $roleRepository;
+    protected $dataSearch;
+
     public function __construct(AdminRepository $repository, RoleRepository $roleRepository){
         $this->repository = $repository;
         $this->roleRepository = $roleRepository;
@@ -41,6 +46,7 @@ class UserController extends Controller
 
     public function search(Request $request){
         $users = $this->repository->search($request->keyword,$request->role_id );
+        $this->dataSearch = $users;
         return view('admin/user/index',compact('users'));
     }
 
@@ -65,5 +71,15 @@ class UserController extends Controller
             return redirect()->route('admin\user\index');
         }
         return redirect()->route('admin\user\index');
+    }
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function export() 
+    {
+        $data = $this->dataSearch;
+        dd($data);
+        return Excel::download(new AdminsExport($data), 'admins.xlsx');
     }
 }
