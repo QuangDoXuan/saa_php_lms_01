@@ -46,7 +46,8 @@ class UserController extends Controller
 
     public function search(Request $request){
         $users = $this->repository->search($request->keyword,$request->role_id );
-        $this->dataSearch = $users;
+        // this$->dataSearch = $users;
+        dd($this->dataSearch);
         return view('admin/user/index',compact('users'));
     }
 
@@ -59,7 +60,6 @@ class UserController extends Controller
         $result = $this->repository->update($request->all(), $id);
         if($result){
             return redirect()->route('admin\user\index');
-            //return redirect(action('UserController@edit', $result->id))->with('status', 'The user '.$id.' has been updated!');
         }
         return redirect()->route('admin\user\index');
     }
@@ -76,10 +76,8 @@ class UserController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function export() 
+    public function export(Request $request) 
     {
-        $data = $this->dataSearch;
-        dd($data);
-        return Excel::download(new AdminsExport($data), 'admins.xlsx');
+        return Excel::download(new AdminsExport(), 'admins.xlsx');
     }
 }
