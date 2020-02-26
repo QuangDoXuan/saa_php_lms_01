@@ -20,3 +20,4 @@ mix.styles(['resources/template/css/sb-admin-2.min.css','resources/template/css/
 mix.copyDirectory('resources/template/img', 'public/img');
 
 mix.js('resources/js/admin/base.js','public/js/admin/base.js')
+mix.js('resources/js/user/home.js','public/js/user/home.js')

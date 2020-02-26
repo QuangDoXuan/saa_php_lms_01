@@ -53,17 +53,16 @@ class LoginController extends Controller
 
     public function loginAdmin(Request $request)
     {
-      // Validate the form data
-      $this->validate($request, [
-        'email'   => 'required|email',
-        'password' => 'required|min:6'
-      ]);
-      // Attempt to log the user in
+        // Validate the form data
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
             return redirect()->intended(RouteServiceProvider::DASHBOARD);
         }
-      // if unsuccessful, then redirect back to the login with the form data
+        // if unsuccessful, then redirect back to the login with the form data
         return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 

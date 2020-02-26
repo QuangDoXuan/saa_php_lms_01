@@ -21,6 +21,8 @@
     "SERVICES": "DỊCH VỤ",
     "CONTACT": "LIÊN HỆ",
     "Login": "Đăng nhập",
+    "Logout":"Đăng xuất",
+    "Profile":"Trang cá nhân",
     "Register": "Đăng ký",
     "Password": "Mật khẩu",
     "Listing": "Danh sách",
@@ -33,9 +35,21 @@
     "BookCategory Manage":"Quản lý thể loại",
     "BorrowBook Manage": "Quản lý mượn sách",
     "Author Manage":"Quản lý tác giả",
+    "Authors":"Tác giả",
     "Publisher Manage":"Quản lý NXB",
     "Role Manage":"Quản lý Role",
     "Create Role":"Tạo role",
     "Permissions": "Danh sách permission",
-    "Successful":"Thành công"
+    "Successful":"Thành công",
+    "Welcome":"Bạn cần tìm kiếm gì",
+    "Search by Keyword":"Từ khóa",
+    "Search the Publisher":"Nhà xuất bản",
+    "All Categories": "Tất cả thể loại",
+    "About Libraria":"Về Libraria",
+    "QUICK LINKS":"QUICK LINKS",
+    "TIMING":"Giờ làm việc",
+    "LATEST TWEETS":"Tweets mới nhất",
+    "Library News":"Tin tức mới",
+    "History":"Lịch sử"
+
 }
