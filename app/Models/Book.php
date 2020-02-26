@@ -11,6 +11,12 @@ use App\Models\Reaction;
 use App\Models\Comment;
 class Book extends Model
 {
+    protected $fillable = [
+        'description', 
+        'title', 
+        'thumbnail',
+        'publisher_id',
+    ];
     //
     public function publisher(){
         return $this->belongsTo(Publisher::class);

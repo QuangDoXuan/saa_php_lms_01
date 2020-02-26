@@ -15,13 +15,14 @@
 Route::group([
     'namespace' => 'User'
 ],function (){
-    Route::get('/login', 'LoginController@showLoginForm');
-    // Route::post('/login', 'LoginController');
     Route::get('/', 'HomeController@index');
     Route::get('/detail', 'HomeController@show');
     Route::get('/profile', 'HomeController@profile');
-    Route::post('/login', 'LoginController@login')->name('user/login');
+
 });
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('user\login');
+Route::post('/login', 'Auth\LoginController@login');
+Route::post('/user/logout', 'Auth\LoginController@logout')->name('user\logout');
 
 Auth::routes();
 
@@ -50,4 +51,12 @@ Route::prefix('admin')->group(function () {
     Route::get('role/{id?}/edit', 'Admin\RoleController@edit')->middleware('auth:admin')->name('admin\role\edit');
     Route::post('role/{id?}/edit','Admin\RoleController@update')->middleware('auth:admin')->name('admin\role\update');
     Route::post('role/{id?}/delete', 'Admin\RoleController@delete')->middleware('auth:admin')->name('admin\role\delete');
+
+    Route::get('book','Admin\BookController@index')->middleware('auth:admin')->name('admin\book\index');
+    Route::get('book/search','Admin\BookController@search')->middleware('auth:admin')->name('admin\book\search');
+    Route::get('book/create', 'Admin\BookController@create')->middleware('auth:admin')->name('admin\book\create');
+    Route::post('book/create', 'Admin\BookController@store')->middleware('auth:admin')->name('admin\book\store');
+    Route::get('book/{id?}/edit', 'Admin\BookController@edit')->middleware('auth:admin')->name('admin\book\edit');
+    Route::post('book/{id?}/edit','Admin\BookController@update')->middleware('auth:admin')->name('admin\book\update');
+    Route::post('book/{id?}/delete', 'Admin\BookController@delete')->middleware('auth:admin')->name('admin\book\delete');
 });

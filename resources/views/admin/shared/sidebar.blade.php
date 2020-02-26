@@ -71,7 +71,7 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+    <a class="nav-link collapsed" href="{{ route('admin\book\index') }}" >
       <i class="fas fa-fw fa-wrench"></i>
       <span>{{ __('Book Manage') }}</span>
     </a>

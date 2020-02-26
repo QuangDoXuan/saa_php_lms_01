@@ -8,6 +8,13 @@ use App\Models\Category;
 class BookCategory extends Model
 {
     //
+    protected $table = 'book_category';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'book_id', 'category_id'
+    ];
+
     public function book(){
         return $this->belongsTo(Book::class);
     }

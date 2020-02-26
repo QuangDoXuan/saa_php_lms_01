@@ -12,18 +12,18 @@
                                 <section class="search-filters">
                                     <div class="container">
                                         <div class="filter-box">
-                                            <h3>What are you looking for at the library?</h3>
+                                            <h3>{{ __('Welcome') }}</h3>
                                             <form action="http://libraria.demo.presstigers.com/index.html" method="get">
                                                 <div class="col-md-4 col-sm-6">
                                                     <div class="form-group">
-                                                        <label class="sr-only" for="keywords">Search by Keyword</label>
+                                                        <label class="sr-only" for="keywords">{{ __('Search by Keyword') }}</label>
                                                         <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3 col-sm-6">
                                                     <div class="form-group">
                                                         <select name="catalog" id="catalog" class="form-control">
-                                                            <option>Search the Catalog</option>
+                                                            <option>{{ __('Search by Publisher') }}</option>
                                                             <option>Catalog 01</option>
                                                             <option>Catalog 02</option>
                                                             <option>Catalog 03</option>
@@ -35,7 +35,7 @@
                                                 <div class="col-md-3 col-sm-6">
                                                     <div class="form-group">
                                                         <select name="category" id="category" class="form-control">
-                                                            <option>All Categories</option>
+                                                            <option>{{ __('All Categories') }}</option>
                                                             <option>Category 01</option>
                                                             <option>Category 02</option>
                                                             <option>Category 03</option>
@@ -46,7 +46,7 @@
                                                 </div>
                                                 <div class="col-md-2 col-sm-6">
                                                     <div class="form-group">
-                                                        <input class="form-control" type="submit" value="Search">
+                                                        <input class="form-control" type="submit" value="{{ __('Search') }}">
                                                     </div>
                                                 </div>
                                             </form>
@@ -58,26 +58,7 @@
                             <div class="row">
                                 <div class="col-md-9 col-md-push-3">
                                     <div class="filter-options margin-list">
-                                        <div class="row">                                            
-                                            <div class="col-md-4 col-sm-4">
-                                                <select name="orderby">
-                                                    <option selected="selected">Default sorting</option>
-                                                    <option>Sort by popularity</option>
-                                                    <option>Sort by rating</option>
-                                                    <option>Sort by newness</option>
-                                                    <option>Sort by price</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="filter-result">Showing items 1 to 9 of 19 total</div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3 pull-right">
-                                                <div class="filter-toggle">
-                                                    <a href="books-media-gird-view-v1.html" class="active"><i class="glyphicon glyphicon-th-large"></i></a>
-                                                    <a href="books-media-list-view.html"><i class="glyphicon glyphicon-th-list"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                     <div class="books-gird">
                                         <ul class ="row">
@@ -866,7 +847,7 @@
                                 <div class="col-md-3 col-md-pull-9">
                                     <aside id="secondary" class="sidebar widget-area" data-accordion-group>
                                         <div class="widget widget_related_search open" data-accordion>
-                                            <h4 class="widget-title" data-control>Related Searches</h4>
+                                            <h4 class="widget-title" data-control>{{ __('RelatedSearch') }}</h4>
                                             <div data-content>
                                                 <div data-accordion>
                                                     <h5 class="widget-sub-title" data-control>Subject</h5>
@@ -884,7 +865,7 @@
                                                     </div>
                                                 </div>
                                                 <div data-accordion>
-                                                    <h5 class="widget-sub-title" data-control>Authors</h5>
+                                                    <h5 class="widget-sub-title" data-control>{{ __('Author') }}</h5>
                                                     <div class="widget_categories" data-content>
                                                         <ul>
                                                             <li><a href="#">Love stories <span>(18)</span></a></li>
@@ -899,116 +880,10 @@
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                <div data-accordion>
-                                                    <h5 class="widget-sub-title" data-control>Series</h5>
-                                                    <div class="widget_categories" data-content>
-                                                        <ul>
-                                                            <li><a href="#">Love stories <span>(18)</span></a></li>
-                                                            <li><a href="#">Texas <span>(04)</span></a></li>
-                                                            <li><a href="#">Rich people <span>(03)</span></a></li>
-                                                            <li><a href="#">Humorous stories <span>(02)</span></a></li>
-                                                            <li><a href="#">Widows <span>(02)</span></a></li>
-                                                            <li><a href="#">Women <span>(11)</span></a></li>
-                                                            <li><a href="#">Babysitters <span>(25)</span></a></li>
-                                                            <li><a href="#">Law firms <span>(09)</span></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div data-accordion>
-                                                    <h5 class="widget-sub-title" data-control>Other Searches</h5>
-                                                    <div class="widget_categories" data-content>
-                                                        <ul>
-                                                            <li><a href="#">Love stories <span>(18)</span></a></li>
-                                                            <li><a href="#">Texas <span>(04)</span></a></li>
-                                                            <li><a href="#">Rich people <span>(03)</span></a></li>
-                                                            <li><a href="#">Humorous stories <span>(02)</span></a></li>
-                                                            <li><a href="#">Widows <span>(02)</span></a></li>
-                                                            <li><a href="#">Women <span>(11)</span></a></li>
-                                                            <li><a href="#">Babysitters <span>(25)</span></a></li>
-                                                            <li><a href="#">Law firms <span>(09)</span></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="widget widget_narrow_search" data-accordion>
-                                            <h4 class="widget-title" data-control>Narrow your search</h4>
-                                            <div data-content>
-                                                <div data-accordion>
-                                                    <h5 class="widget-sub-title" data-control>Type of Material</h5>
-                                                    <div class="widget_material" data-content>
-                                                        <form action="#">
-                                                            <label><input type="checkbox" name="material" value="books"> Books</label>
-                                                            <label><input type="checkbox" name="material" value="electronic" checked> Electronic Resources</label>
-                                                            <label><input type="checkbox" name="material" value="ebooks"> ebooks</label>
-                                                            <label><input type="checkbox" name="material" value="soundrecording" checked> Sound Recording</label>
-                                                            <label><input type="checkbox" name="material" value="largeprint"> Large Print</label>
-                                                            <label><input type="checkbox" name="material" value="audioebooks" checked> Audio eBooks</label>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div data-accordion>
-                                                    <h5 class="widget-sub-title" data-control>Publishing Date </h5>
-                                                    <div class="widget widget_material" data-content>
-                                                        <form action="#">
-                                                            <label><input type="checkbox" name="material" value="books"> Books</label>
-                                                            <label><input type="checkbox" name="material" value="electronic" checked> Electronic Resources</label>
-                                                            <label><input type="checkbox" name="material" value="ebooks"> ebooks</label>
-                                                            <label><input type="checkbox" name="material" value="soundrecording" checked> Sound Recording</label>
-                                                            <label><input type="checkbox" name="material" value="largeprint"> Large Print</label>
-                                                            <label><input type="checkbox" name="material" value="audioebooks" checked> Audio eBooks</label>
-                                                        </form>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div data-accordion>
-                                                    <h5 class="widget-sub-title" data-control>Popularity </h5>
-                                                    <div class="widget widget_material" data-content>
-                                                        <form action="#">
-                                                            <label><input type="checkbox" name="material" value="books"> Books</label>
-                                                            <label><input type="checkbox" name="material" value="electronic" checked> Electronic Resources</label>
-                                                            <label><input type="checkbox" name="material" value="ebooks"> ebooks</label>
-                                                            <label><input type="checkbox" name="material" value="soundrecording" checked> Sound Recording</label>
-                                                            <label><input type="checkbox" name="material" value="largeprint"> Large Print</label>
-                                                            <label><input type="checkbox" name="material" value="audioebooks" checked> Audio eBooks</label>
-                                                        </form>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div data-accordion>
-                                                    <h5 class="widget-sub-title" data-control>Language </h5>
-                                                    <div class="widget widget_material" data-content>
-                                                        <form action="#">
-                                                            <label><input type="checkbox" name="material" value="books"> Books</label>
-                                                            <label><input type="checkbox" name="material" value="electronic" checked> Electronic Resources</label>
-                                                            <label><input type="checkbox" name="material" value="ebooks"> ebooks</label>
-                                                            <label><input type="checkbox" name="material" value="soundrecording" checked> Sound Recording</label>
-                                                            <label><input type="checkbox" name="material" value="largeprint"> Large Print</label>
-                                                            <label><input type="checkbox" name="material" value="audioebooks" checked> Audio eBooks</label>
-                                                        </form>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="widget widget_recent_releases">
-                                            <h4 class="widget-title">New Releases</h4>
-                                            <ul>
-                                                <li><a href="#">Books</a></li>
-                                                <li><a href="#">eBooks</a></li>
-                                                <li><a href="#">DVDS</a></li>
-                                                <li><a href="#">Magazines</a></li>
-                                                <li><a href="#">Audio</a></li>
-                                                <li><a href="#">eAudio</a></li>
-                                            </ul>
-                                            <div class="clearfix"></div>
-                                        </div>
                                         
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>                                        
                                     </aside>
                                 </div>
                             </div>

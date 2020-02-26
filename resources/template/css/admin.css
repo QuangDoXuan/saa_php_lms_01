@@ -28,3 +28,17 @@ button.btn-search.btn-primary {
     border-radius: 5px;
     /* font-size: 13px; */
 }
+#authors-select{
+    width: 100%;
+    overflow: auto;
+    border-radius: 3px;
+}
+.image-preview{
+    width: 100%;
+}
+#blah{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}

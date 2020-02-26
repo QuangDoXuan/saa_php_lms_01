@@ -23,3 +23,37 @@
             padding: 0 20px;
 
         }
+
+.topbar-links{
+    position: relative;
+}
+.setting-user {
+    position: absolute;
+    z-index: 10;
+    background: #fff;
+    right: -18px;
+    list-style: none;
+    margin: 0;
+    padding:0;
+    min-width: 100px;
+    border-radius: 3px;
+    text-align: left;
+    display: none;
+}
+ul.setting-user li{
+    padding: 8px;
+}
+
+ul.setting-user li:hover{
+    background: #ff7236;
+    color: #fff;
+}
+
+li.item-setting a {
+    text-decoration: none!important;
+    cursor: pointer;
+}
+nav.navigation.pagination.text-center {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
